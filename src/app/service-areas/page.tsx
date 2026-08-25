@@ -34,7 +34,7 @@ export default function ServiceAreasIndexPage() {
                 <h2 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-ink group-hover:text-rust">
                   Sandblasting {city.name}
                 </h2>
-                <p className="mt-2 flex-1 text-sm text-steel-600">{city.intro}</p>
+                <p className="mt-2 flex-1 text-base text-steel-600">{city.intro}</p>
                 <span className="mt-4 font-mono text-xs font-bold uppercase tracking-wide text-rust">
                   View Details →
                 </span>

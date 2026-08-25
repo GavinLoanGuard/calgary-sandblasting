@@ -23,7 +23,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
             >
               <span className="flex items-baseline gap-3">
                 <span className="font-mono text-xs font-bold text-steel-400">{String(i + 1).padStart(2, "0")}</span>
-                <span className="font-heading text-base font-semibold uppercase tracking-tight text-ink">
+                <span className="font-heading text-lg font-semibold uppercase tracking-tight text-ink">
                   {faq.question}
                 </span>
               </span>
@@ -36,7 +36,7 @@ export default function FaqAccordion({ faqs }: { faqs: Faq[] }) {
               </span>
             </button>
             {isOpen && (
-              <div className="px-5 pb-5 pl-11 text-sm leading-relaxed text-steel-600">
+              <div className="px-5 pb-5 pl-11 text-base leading-relaxed text-steel-600">
                 <p>{faq.answer}</p>
               </div>
             )}

@@ -6,6 +6,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Bump the base type scale on larger screens — the design read a little
+   small at desktop viewing distance even though the hierarchy worked on
+   mobile. Every rem-based Tailwind text size scales with this. */
+@media (min-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 body {
   @apply bg-steel-50 text-ink;
 }

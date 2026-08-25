@@ -63,7 +63,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.keyPoints.map((point, i) => (
                 <li key={point} className="rivets clip-plate flex items-start gap-3 border border-ink/15 bg-white p-4">
                   <span className="font-mono text-xs font-bold text-rust">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="text-sm text-steel-700">{point}</span>
+                  <span className="text-base text-steel-700">{point}</span>
                 </li>
               ))}
             </ul>
@@ -81,7 +81,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.process.map((step, i) => (
                 <li key={step} className="clip-plate border-2 border-ink bg-white p-5">
                   <span className="font-heading text-3xl font-black text-rust">{i + 1}</span>
-                  <p className="mt-2 text-sm text-steel-700">{step}</p>
+                  <p className="mt-2 text-base text-steel-700">{step}</p>
                 </li>
               ))}
             </ol>
@@ -121,7 +121,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.pricing.label}
             </p>
             <p className="mt-2 font-heading text-3xl font-black uppercase text-rust">{service.pricing.range}</p>
-            <p className="mt-2 text-sm text-steel-600">{service.pricing.note}</p>
+            <p className="mt-2 text-base text-steel-600">{service.pricing.note}</p>
             <CTAButton href="/pricing" variant="secondary" className="mt-6">
               See Full Pricing
             </CTAButton>

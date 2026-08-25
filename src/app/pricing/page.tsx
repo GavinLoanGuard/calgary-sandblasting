@@ -51,7 +51,7 @@ export default function PricingPage() {
                   {service.shortName}
                 </h2>
                 <p className="mt-2 font-heading text-2xl font-black uppercase text-rust">{service.pricing.range}</p>
-                <p className="mt-2 text-sm text-steel-600">{service.pricing.note}</p>
+                <p className="mt-2 text-base text-steel-600">{service.pricing.note}</p>
               </div>
             ))}
           </div>
@@ -60,7 +60,7 @@ export default function PricingPage() {
             <h2 className="font-mono text-xs font-bold uppercase tracking-wide text-steel-500">
               What Affects Your Quote
             </h2>
-            <ul className="mt-4 space-y-2 text-sm text-steel-700">
+            <ul className="mt-4 space-y-2 text-base text-steel-700">
               <li className="flex gap-2">
                 <span className="text-rust">—</span> Surface area and how much material needs to be removed
               </li>

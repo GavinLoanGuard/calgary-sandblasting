@@ -7,7 +7,7 @@ import { Faq } from "@/data/faq";
 export default function QuickAnswers({ items, title = "Quick Answers" }: { items: Faq[]; title?: string }) {
   return (
     <div className="clip-plate border-2 border-ink bg-white p-6">
-      <p className="flex items-center gap-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-rust">
+      <p className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.16em] text-rust">
         <span className="h-1.5 w-1.5 bg-rust" />
         {title}
       </p>
@@ -17,7 +17,7 @@ export default function QuickAnswers({ items, title = "Quick Answers" }: { items
             <dt className="font-heading text-lg font-semibold uppercase tracking-tight text-ink">
               {item.question}
             </dt>
-            <dd className="mt-1 text-sm leading-relaxed text-steel-600">{item.answer}</dd>
+            <dd className="mt-1 text-base leading-relaxed text-steel-600">{item.answer}</dd>
           </div>
         ))}
       </dl>

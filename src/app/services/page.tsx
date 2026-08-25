@@ -39,7 +39,7 @@ export default function ServicesIndexPage() {
                 <h2 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-ink group-hover:text-rust">
                   {service.shortName}
                 </h2>
-                <p className="mt-2 flex-1 text-sm text-steel-600">{service.heroDescription}</p>
+                <p className="mt-2 flex-1 text-base text-steel-600">{service.heroDescription}</p>
                 <span className="mt-4 font-mono text-xs font-bold uppercase tracking-wide text-rust">
                   View Service →
                 </span>

@@ -25,7 +25,7 @@ export default function HomePage() {
           <div>
             <p className="mb-4 flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-[0.2em] text-hazard">
               <span className="h-1.5 w-1.5 bg-hazard" />
-              185 CFM Rig · Two-Person Crew · On-Site
+              185 CFM Rig · Fully Mobile · On-Site
             </p>
             <h1 className="font-heading text-4xl font-black uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl">
               <span className="block text-white">{BUSINESS_NAME}</span>
@@ -94,7 +94,7 @@ export default function HomePage() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-ink group-hover:text-rust">
                   {service.shortName}
                 </h3>
-                <p className="mt-2 flex-1 text-sm text-steel-600">{service.heroDescription}</p>
+                <p className="mt-2 flex-1 text-base text-steel-600">{service.heroDescription}</p>
                 <span className="mt-4 font-mono text-xs font-bold uppercase tracking-wide text-rust">
                   View Service →
                 </span>

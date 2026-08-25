@@ -101,7 +101,7 @@ export default function Footer() {
       </Container>
 
       <div className="relative border-t border-white/10 py-4">
-        <Container className="flex flex-col items-center justify-between gap-2 font-mono text-[11px] text-steel-500 sm:flex-row">
+        <Container className="flex flex-col items-center justify-between gap-2 font-mono text-xs text-steel-500 sm:flex-row">
           <p>
             © {year} {BUSINESS_NAME}. All rights reserved.
           </p>

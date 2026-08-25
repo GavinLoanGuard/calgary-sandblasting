@@ -61,7 +61,7 @@ export const TRUST_SIGNALS = [
   "Fully insured mobile operation",
   "WCB coverage in place (confirming final documentation)",
   "185 CFM compressor, full blast rig on every job",
-  "Two-person crew, on-site at your location",
+  "We come to you — on-site at your yard or job site",
 ];
 
 export const SOCIAL_LINKS = {
