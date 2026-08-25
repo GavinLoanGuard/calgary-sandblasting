@@ -1,0 +1,89 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { BUSINESS_NAME } from "@/config/site";
+import Container from "./Container";
+import PhoneLink from "./PhoneLink";
+import CTAButton from "./CTAButton";
+
+const NAV_LINKS = [
+  { href: "/services/trailer-equipment-blasting", label: "Trailer & Equipment" },
+  { href: "/services/fleet-commercial-blasting", label: "Fleet & Commercial" },
+  { href: "/services/rust-paint-removal", label: "Rust & Paint Removal" },
+  { href: "/services/fence-deck-restoration", label: "Fence & Deck" },
+  { href: "/service-areas/calgary", label: "Service Areas" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/faq", label: "FAQ" },
+];
+
+export default function Header() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 backdrop-blur">
+      <Container className="flex h-16 items-center justify-between gap-4">
+        <Link href="/" className="font-heading text-lg font-bold uppercase tracking-tight text-brand sm:text-xl">
+          {BUSINESS_NAME}
+        </Link>
+
+        <nav className="hidden items-center gap-6 lg:flex">
+          {NAV_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-steel-700 transition-colors hover:text-accent"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-3">
+          <PhoneLink className="hidden font-heading text-base font-bold text-brand sm:block" />
+          <CTAButton href="/contact" className="hidden sm:inline-flex">
+            Get a Quote
+          </CTAButton>
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-steel-200 lg:hidden"
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">Menu</span>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </Container>
+
+      {open && (
+        <div className="border-t border-steel-200 bg-white lg:hidden">
+          <Container className="flex flex-col gap-1 py-4">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded px-2 py-2 text-sm font-medium text-steel-700 hover:bg-steel-50"
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <PhoneLink className="mt-2 px-2 font-heading text-base font-bold text-brand" />
+            <CTAButton href="/contact" className="mt-2">
+              Get a Quote
+            </CTAButton>
+          </Container>
+        </div>
+      )}
+    </header>
+  );
+}
