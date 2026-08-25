@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
+import PageHero from "@/components/PageHero";
 import QuickAnswers from "@/components/QuickAnswers";
 import FaqAccordion from "@/components/FaqAccordion";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
@@ -36,22 +37,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <section className="bg-brand text-white">
-        <Container className="py-14 lg:py-20">
-          {service.comingSoon && (
-            <span className="mb-4 inline-block rounded bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-wide">
-              Coming Soon
-            </span>
-          )}
-          <h1 className="max-w-3xl font-heading text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
-            {service.name} | {BUSINESS_NAME}
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-steel-200">{service.heroDescription}</p>
-          <div className="mt-8">
-            <CTAButton href="/contact">Request a Free Quote</CTAButton>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow={`${BUSINESS_NAME} · ${service.comingSoon ? "Coming Soon" : "Sandblasting Service"}`}
+        title={service.name}
+        description={service.heroDescription}
+      >
+        <div className="mt-8">
+          <CTAButton href="/contact">Request a Free Quote</CTAButton>
+        </div>
+      </PageHero>
 
       <section className="py-12">
         <Container>
@@ -62,19 +56,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {service.keyPoints.length > 0 && (
         <section className="py-4">
           <Container>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-brand">
+            <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
               What&apos;s Included
             </h2>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
-              {service.keyPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 rounded-lg border border-steel-200 bg-white p-4">
-                  <svg viewBox="0 0 20 20" fill="currentColor" className="mt-0.5 h-5 w-5 shrink-0 text-accent">
-                    <path
-                      fillRule="evenodd"
-                      d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+              {service.keyPoints.map((point, i) => (
+                <li key={point} className="rivets clip-plate flex items-start gap-3 border border-ink/15 bg-white p-4">
+                  <span className="font-mono text-xs font-bold text-rust">{String(i + 1).padStart(2, "0")}</span>
                   <span className="text-sm text-steel-700">{point}</span>
                 </li>
               ))}
@@ -84,13 +72,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       )}
 
       {service.process.length > 0 && (
-        <section className="mt-12 bg-steel-50 py-16">
+        <section className="mt-12 bg-steel-100 py-16">
           <Container>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-brand">How It Works</h2>
+            <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
+              How It Works
+            </h2>
             <ol className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {service.process.map((step, i) => (
-                <li key={step} className="rounded-lg border border-steel-200 bg-white p-5">
-                  <span className="font-heading text-2xl font-bold text-accent">{i + 1}</span>
+                <li key={step} className="clip-plate border-2 border-ink bg-white p-5">
+                  <span className="font-heading text-3xl font-black text-rust">{i + 1}</span>
                   <p className="mt-2 text-sm text-steel-700">{step}</p>
                 </li>
               ))}
@@ -102,11 +92,13 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       {service.goodFor.length > 0 && (
         <section className="py-16">
           <Container>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-brand">Good Fit For</h2>
+            <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
+              Good Fit For
+            </h2>
             <ul className="mt-6 space-y-2">
               {service.goodFor.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-steel-700">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-hazard" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -115,7 +107,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      <section className="bg-steel-50 py-16">
+      <section className="bg-steel-100 py-16">
         <Container className="grid gap-6 sm:grid-cols-2">
           <PlaceholderPhoto label={`${service.shortName} — Before`} />
           <PlaceholderPhoto label={`${service.shortName} — After`} />
@@ -123,22 +115,24 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       <section className="py-16">
-        <Container className="rounded-lg border border-steel-200 bg-white p-8">
-          <h2 className="font-heading text-xl font-bold uppercase tracking-tight text-brand">
-            {service.pricing.label} Pricing
-          </h2>
-          <p className="mt-2 font-heading text-2xl font-bold text-accent">{service.pricing.range}</p>
-          <p className="mt-2 text-sm text-steel-600">{service.pricing.note}</p>
-          <CTAButton href="/pricing" variant="secondary" className="mt-6">
-            See Full Pricing
-          </CTAButton>
+        <Container>
+          <div className="clip-plate border-2 border-ink bg-white p-8">
+            <p className="font-mono text-xs font-bold uppercase tracking-wide text-steel-500">
+              {service.pricing.label}
+            </p>
+            <p className="mt-2 font-heading text-3xl font-black uppercase text-rust">{service.pricing.range}</p>
+            <p className="mt-2 text-sm text-steel-600">{service.pricing.note}</p>
+            <CTAButton href="/pricing" variant="secondary" className="mt-6">
+              See Full Pricing
+            </CTAButton>
+          </div>
         </Container>
       </section>
 
       {service.faqs.length > 0 && (
-        <section className="bg-steel-50 py-16">
+        <section className="bg-steel-100 py-16">
           <Container>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-brand">
+            <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
               {service.name} FAQ
             </h2>
             <div className="mt-8">
@@ -151,7 +145,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-16">
         <Container className="grid gap-8 lg:grid-cols-2">
           <div>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-brand">
+            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-ink">
               Get a Quote for {service.shortName}
             </h2>
             <p className="mt-2 text-steel-600">

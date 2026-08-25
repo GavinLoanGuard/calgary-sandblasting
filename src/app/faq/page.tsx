@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
+import PageHero from "@/components/PageHero";
 import FaqAccordion from "@/components/FaqAccordion";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, faqPageSchema } from "@/lib/schema";
@@ -21,35 +22,29 @@ export default function FaqPage() {
 
   return (
     <>
-      <section className="bg-brand py-14 text-white lg:py-20">
-        <Container>
-          <h1 className="max-w-3xl font-heading text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
-            Frequently Asked Questions
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-steel-200">
-            Direct answers about mobile sandblasting with {BUSINESS_NAME} — pricing, process, service area, and
-            what we work on.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow={BUSINESS_NAME}
+        title="Frequently Asked Questions"
+        description="Direct answers about mobile sandblasting — pricing, process, service area, and what we work on."
+      />
 
       <section className="py-16">
         <Container className="max-w-3xl">
-          <h2 className="font-heading text-lg font-semibold uppercase tracking-wide text-steel-500">
+          <h2 className="border-b-2 border-ink pb-3 font-mono text-xs font-bold uppercase tracking-[0.14em] text-steel-500">
             General Questions
           </h2>
-          <div className="mt-4">
+          <div className="mt-6">
             <FaqAccordion faqs={GENERAL_FAQS} />
           </div>
 
-          <h2 className="mt-12 font-heading text-lg font-semibold uppercase tracking-wide text-steel-500">
+          <h2 className="mt-14 border-b-2 border-ink pb-3 font-mono text-xs font-bold uppercase tracking-[0.14em] text-steel-500">
             Service-Specific Questions
           </h2>
-          <div className="mt-4">
+          <div className="mt-6">
             <FaqAccordion faqs={SERVICE_FAQS} />
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-14 border-t-2 border-ink pt-10 text-center">
             <p className="text-steel-600">Still have a question?</p>
             <CTAButton href="/contact" className="mt-4">
               Ask Us

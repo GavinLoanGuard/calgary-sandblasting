@@ -22,18 +22,24 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-steel-200 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b-2 border-ink bg-steel-50">
+      <div className="hazard-band h-1.5 w-full" />
       <Container className="flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="font-heading text-lg font-bold uppercase tracking-tight text-brand sm:text-xl">
-          {BUSINESS_NAME}
+        <Link href="/" className="group flex items-center gap-2.5">
+          <span className="clip-tag flex h-9 w-9 shrink-0 items-center justify-center bg-ink font-heading text-base font-black text-hazard">
+            CS
+          </span>
+          <span className="font-heading text-lg font-bold uppercase leading-none tracking-tight text-ink sm:text-xl">
+            {BUSINESS_NAME}
+          </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-steel-700 transition-colors hover:text-accent"
+              className="font-mono text-[11px] font-semibold uppercase tracking-wide text-steel-600 transition-colors hover:text-rust"
             >
               {link.label}
             </Link>
@@ -41,7 +47,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <PhoneLink className="hidden font-heading text-base font-bold text-brand sm:block" />
+          <PhoneLink className="hidden font-heading text-base font-bold text-ink hover:text-rust sm:block" />
           <CTAButton href="/contact" className="hidden sm:inline-flex">
             Get a Quote
           </CTAButton>
@@ -49,7 +55,7 @@ export default function Header() {
             type="button"
             aria-label="Toggle menu"
             aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-steel-200 lg:hidden"
+            className="clip-tag inline-flex h-10 w-10 items-center justify-center border-2 border-ink lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
@@ -65,19 +71,19 @@ export default function Header() {
       </Container>
 
       {open && (
-        <div className="border-t border-steel-200 bg-white lg:hidden">
+        <div className="border-t-2 border-ink bg-steel-50 lg:hidden">
           <Container className="flex flex-col gap-1 py-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded px-2 py-2 text-sm font-medium text-steel-700 hover:bg-steel-50"
+                className="px-2 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-steel-700 hover:text-rust"
                 onClick={() => setOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
-            <PhoneLink className="mt-2 px-2 font-heading text-base font-bold text-brand" />
+            <PhoneLink className="mt-2 px-2 font-heading text-base font-bold text-ink" />
             <CTAButton href="/contact" className="mt-2">
               Get a Quote
             </CTAButton>

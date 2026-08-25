@@ -7,5 +7,64 @@ html {
 }
 
 body {
-  @apply bg-white text-steel-900;
+  @apply bg-steel-50 text-ink;
+}
+
+::selection {
+  background-color: theme("colors.hazard.DEFAULT");
+  color: theme("colors.ink.DEFAULT");
+}
+
+@layer utilities {
+  /* Subtle noise layer — drop onto any relative-positioned block via <span class="grain" />. */
+  .grain {
+    position: absolute;
+    inset: 0;
+    background-image: theme("backgroundImage.grain");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Diagonal hazard-tape band — used sparingly as a section seam, not a repeated card border. */
+  .hazard-band {
+    background-image: theme("backgroundImage.hazard-stripe");
+    background-size: 51px 51px;
+  }
+
+  /* Cut top-left + bottom-right corners — the "welded plate" card shape used instead of rounded-xl. */
+  .clip-plate {
+    clip-path: polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);
+  }
+  .clip-plate-lg {
+    clip-path: polygon(28px 0, 100% 0, 100% calc(100% - 28px), calc(100% - 28px) 100%, 0 100%, 0 28px);
+  }
+
+  /* Single cut corner — for buttons and small tags. */
+  .clip-tag {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  }
+
+  /* Four corner rivets on a dark plate, drawn without extra markup. */
+  .rivets {
+    position: relative;
+  }
+  .rivets::before,
+  .rivets::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  }
+  .rivets::before {
+    top: 10px;
+    left: 10px;
+  }
+  .rivets::after {
+    bottom: 10px;
+    right: 10px;
+  }
 }

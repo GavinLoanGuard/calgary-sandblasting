@@ -13,30 +13,50 @@ export default function OpengraphImage() {
           height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "flex-start",
-          justifyContent: "center",
-          background: "#1F2933",
-          padding: "80px",
+          background: "#15171A",
         }}
       >
-        <div style={{ color: "#E8590C", fontSize: 28, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase" }}>
-          Mobile Sandblasting
-        </div>
+        <div style={{ display: "flex", height: 14, width: "100%", background: "#F2C230" }} />
         <div
           style={{
-            marginTop: 16,
-            color: "#FFFFFF",
-            fontSize: 64,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            lineHeight: 1.1,
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            padding: "70px 80px",
           }}
         >
-          {BUSINESS_NAME}
+          <div
+            style={{
+              display: "flex",
+              color: "#B8461F",
+              fontSize: 26,
+              fontWeight: 700,
+              letterSpacing: 4,
+              textTransform: "uppercase",
+            }}
+          >
+            Mobile Sandblasting
+          </div>
+          <div
+            style={{
+              display: "flex",
+              marginTop: 20,
+              color: "#F2C230",
+              fontSize: 74,
+              fontWeight: 800,
+              textTransform: "uppercase",
+              lineHeight: 1,
+            }}
+          >
+            {BUSINESS_NAME}
+          </div>
+          <div style={{ display: "flex", marginTop: 28, color: "#AEA593", fontSize: 26 }}>
+            Calgary · Airdrie · Cochrane · Okotoks · Chestermere · Strathmore
+          </div>
         </div>
-        <div style={{ marginTop: 24, color: "#CBD2D9", fontSize: 28 }}>
-          Calgary · Airdrie · Cochrane · Okotoks · Chestermere · Strathmore
-        </div>
+        <div style={{ display: "flex", height: 14, width: "100%", background: "#F2C230" }} />
       </div>
     ),
     { ...size }

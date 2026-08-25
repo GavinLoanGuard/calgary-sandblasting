@@ -6,6 +6,10 @@ import { fireQuoteConversion } from "@/lib/gtag";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
+const LABEL_CLASS = "mb-1.5 block font-mono text-[11px] font-bold uppercase tracking-wide text-steel-600";
+const INPUT_CLASS =
+  "w-full border-2 border-steel-300 bg-white px-3 py-2.5 text-sm text-ink focus:border-ink focus:outline-none focus:ring-2 focus:ring-hazard";
+
 export default function QuoteForm({ serviceContext }: { serviceContext?: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
@@ -42,9 +46,9 @@ export default function QuoteForm({ serviceContext }: { serviceContext?: string 
 
   if (status === "success") {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 p-6 text-center">
-        <p className="font-heading text-lg font-semibold text-green-800">Thanks — request received.</p>
-        <p className="mt-2 text-sm text-green-700">
+      <div className="clip-plate border-2 border-ink bg-hazard/10 p-6 text-center">
+        <p className="font-heading text-xl font-bold uppercase tracking-tight text-ink">Request Received</p>
+        <p className="mt-2 text-sm text-steel-600">
           We&apos;ll get back to you shortly to confirm details and schedule your quote.
         </p>
       </div>
@@ -60,46 +64,28 @@ export default function QuoteForm({ serviceContext }: { serviceContext?: string 
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1 block text-sm font-medium text-steel-700">
+          <label htmlFor="name" className={LABEL_CLASS}>
             Name *
           </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="w-full rounded-md border border-steel-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-          />
+          <input id="name" name="name" type="text" required className={INPUT_CLASS} />
         </div>
         <div>
-          <label htmlFor="phone" className="mb-1 block text-sm font-medium text-steel-700">
+          <label htmlFor="phone" className={LABEL_CLASS}>
             Phone *
           </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            className="w-full rounded-md border border-steel-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-          />
+          <input id="phone" name="phone" type="tel" required className={INPUT_CLASS} />
         </div>
       </div>
 
       <div>
-        <label htmlFor="email" className="mb-1 block text-sm font-medium text-steel-700">
+        <label htmlFor="email" className={LABEL_CLASS}>
           Email *
         </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="w-full rounded-md border border-steel-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
-        />
+        <input id="email" name="email" type="email" required className={INPUT_CLASS} />
       </div>
 
       <div>
-        <label htmlFor="location" className="mb-1 block text-sm font-medium text-steel-700">
+        <label htmlFor="location" className={LABEL_CLASS}>
           Job location (city)
         </label>
         <input
@@ -107,12 +93,12 @@ export default function QuoteForm({ serviceContext }: { serviceContext?: string 
           name="location"
           type="text"
           placeholder="e.g. Calgary, Airdrie, Cochrane..."
-          className="w-full rounded-md border border-steel-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          className={INPUT_CLASS}
         />
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1 block text-sm font-medium text-steel-700">
+        <label htmlFor="message" className={LABEL_CLASS}>
           Tell us about the job *
         </label>
         <textarea
@@ -121,20 +107,20 @@ export default function QuoteForm({ serviceContext }: { serviceContext?: string 
           required
           rows={4}
           placeholder="What needs blasting, approximate size/quantity, and timeline"
-          className="w-full rounded-md border border-steel-300 px-3 py-2 text-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+          className={INPUT_CLASS}
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="w-full rounded-md bg-accent px-6 py-3 font-heading font-semibold uppercase tracking-wide text-white transition-colors hover:bg-accent-dark disabled:opacity-60 sm:w-auto"
+        className="clip-tag w-full bg-hazard px-6 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ink shadow-[4px_4px_0_0_theme(colors.ink.DEFAULT)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-hazard-dim disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
       >
         {status === "submitting" ? "Sending..." : "Request a Quote"}
       </button>
 
       {status === "error" && (
-        <p className="text-sm text-red-600">
+        <p className="text-sm text-rust">
           {WEB3FORMS_ACCESS_KEY
             ? "Something went wrong sending your request — please call us directly instead."
             : "Form isn&apos;t configured yet — please call us directly."}

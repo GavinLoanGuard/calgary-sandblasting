@@ -3,19 +3,17 @@ import { TRUST_SIGNALS } from "@/config/site";
 export default function TrustBadges({ dark = true }: { dark?: boolean }) {
   return (
     <ul className="grid gap-3 sm:grid-cols-2">
-      {TRUST_SIGNALS.map((signal) => (
+      {TRUST_SIGNALS.map((signal, i) => (
         <li
           key={signal}
-          className={`flex items-start gap-2 text-sm ${dark ? "text-steel-100" : "text-steel-700"}`}
+          className={`rivets clip-plate flex items-start gap-3 border px-4 py-3 ${
+            dark ? "border-white/15 bg-white/5 text-steel-100" : "border-ink/15 bg-white text-steel-700"
+          }`}
         >
-          <svg viewBox="0 0 20 20" fill="currentColor" className="mt-0.5 h-5 w-5 shrink-0 text-accent">
-            <path
-              fillRule="evenodd"
-              d="M16.7 5.3a1 1 0 010 1.4l-7.5 7.5a1 1 0 01-1.4 0l-3.5-3.5a1 1 0 011.4-1.4l2.8 2.8 6.8-6.8a1 1 0 011.4 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-          <span>{signal}</span>
+          <span className={`font-mono text-xs font-bold ${dark ? "text-hazard" : "text-rust"}`}>
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <span className="text-sm leading-snug">{signal}</span>
         </li>
       ))}
     </ul>

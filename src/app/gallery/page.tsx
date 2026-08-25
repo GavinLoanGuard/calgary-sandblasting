@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
+import PageHero from "@/components/PageHero";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -18,34 +19,30 @@ const PLACEHOLDER_PROJECTS = SERVICES.filter((s) => !s.comingSoon).map((s) => s.
 export default function GalleryPage() {
   return (
     <>
-      <section className="bg-brand py-14 text-white lg:py-20">
-        <Container>
-          <h1 className="max-w-3xl font-heading text-3xl font-bold uppercase leading-tight tracking-tight sm:text-4xl">
-            Before &amp; After Gallery
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-steel-200">
-            Project photos are added as jobs are completed. This gallery will fill in with real before/after shots
-            from Calgary-area jobs — check back soon, or ask to see recent work when you request a quote.
-          </p>
-        </Container>
-      </section>
+      <PageHero
+        eyebrow={BUSINESS_NAME}
+        title="Before & After Gallery"
+        description="Project photos are added as jobs are completed. This gallery will fill in with real before/after shots from Calgary-area jobs — check back soon, or ask to see recent work when you request a quote."
+      />
 
       <section className="py-16">
         <Container>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-14">
             {PLACEHOLDER_PROJECTS.map((name) => (
-              <div key={name} className="grid grid-cols-2 gap-2 rounded-lg border border-steel-200 bg-white p-3">
-                <PlaceholderPhoto label={`${name} — Before`} />
-                <PlaceholderPhoto label={`${name} — After`} />
-                <p className="col-span-2 pt-1 text-center text-xs font-medium uppercase tracking-wide text-steel-500">
-                  {name}
-                </p>
+              <div key={name}>
+                <p className="mb-4 font-mono text-xs font-bold uppercase tracking-[0.14em] text-rust">{name}</p>
+                <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:max-w-lg">
+                  <PlaceholderPhoto label={`${name} — Before`} />
+                  <PlaceholderPhoto label={`${name} — After`} />
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-steel-600">Have a job you&apos;d like blasted? We&apos;ll add it to the gallery when it&apos;s done.</p>
+          <div className="mt-16 border-t-2 border-ink pt-10 text-center">
+            <p className="text-steel-600">
+              Have a job you&apos;d like blasted? We&apos;ll add it to the gallery when it&apos;s done.
+            </p>
             <CTAButton href="/contact" className="mt-6">
               Request a Free Quote
             </CTAButton>
