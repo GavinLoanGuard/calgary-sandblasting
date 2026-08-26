@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
     ],
     pricing: {
       label: "Trailer & equipment blasting",
-      range: "$400 – $1,800 per unit",
+      range: "$800 – $3,000 per unit",
       note: "Typical range for a single axle utility trailer up to a tandem equipment trailer or small attachment. Larger fleets get a per-unit rate.",
     },
     faqs: [
@@ -144,14 +144,14 @@ export const SERVICES: Service[] = [
     ],
     pricing: {
       label: "Rust & paint removal",
-      range: "$75 – $150 per hour, or flat rate by scope",
+      range: "$150 – $250 per hour, or flat rate by scope",
       note: "Small jobs are typically quoted hourly; larger surfaces get a flat rate once we've seen the scope.",
     },
     faqs: [
       {
         question: "How much does sandblasting cost in Calgary?",
         answer:
-          "Calgary Sandblasting prices most rust and paint removal jobs between $75 and $150 per hour, or as a flat rate once the scope is confirmed. Trailer and equipment jobs typically run $400-$1,800 per unit. Every quote is a typical range, not a fixed number, until we've seen the job.",
+          "Calgary Sandblasting prices most rust and paint removal jobs between $150 and $250 per hour, or as a flat rate once the scope is confirmed. Trailer and equipment jobs typically run $800-$3,000 per unit. Every quote is a typical range, not a fixed number, until we've seen the job.",
       },
       {
         question: "Is sandblasting better than a wire wheel or grinder for rust removal?",
@@ -193,7 +193,7 @@ export const SERVICES: Service[] = [
     ],
     pricing: {
       label: "Fence & deck restoration",
-      range: "$1.50 – $4.00 per sq. ft.",
+      range: "$3.00 – $7.00 per sq. ft.",
       note: "Typical range depending on surface condition, media, and whether it's wood, metal, or a mix. We confirm square footage on the quote.",
     },
     faqs: [

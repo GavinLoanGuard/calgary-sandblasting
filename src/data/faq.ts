@@ -19,7 +19,7 @@ export const GENERAL_FAQS: Faq[] = [
   {
     question: "How much does sandblasting cost in Calgary?",
     answer:
-      "Calgary Sandblasting prices most rust and paint removal jobs between $75 and $150 per hour, or as a flat rate once the scope is confirmed. Trailer and equipment jobs typically run $400-$1,800 per unit, and fence or deck restoration runs $1.50-$4.00 per square foot. These are typical ranges — every job gets a firm quote before work starts. See the full pricing breakdown on our pricing page.",
+      "Calgary Sandblasting prices most rust and paint removal jobs between $150 and $250 per hour, or as a flat rate once the scope is confirmed. Trailer and equipment jobs typically run $800-$3,000 per unit, and fence or deck restoration runs $3.00-$7.00 per square foot. These are typical ranges — every job gets a firm quote before work starts. See the full pricing breakdown on our pricing page.",
   },
   {
     question: "How do you protect my property while sandblasting?",
