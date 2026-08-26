@@ -62,6 +62,8 @@ export const TRUST_SIGNALS = [
   "WCB coverage in place (confirming final documentation)",
   "185 CFM compressor, full blast rig on every job",
   "We come to you — on-site at your yard or job site",
+  "Work area contained — surrounding property protected",
+  "Spent media and debris hauled away — no cleanup left for you",
 ];
 
 export const SOCIAL_LINKS = {

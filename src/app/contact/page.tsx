@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/components/Container";
 import PageHero from "@/components/PageHero";
 import QuoteForm from "@/components/QuoteForm";
+import TrustBadges from "@/components/TrustBadges";
 import PhoneLink from "@/components/PhoneLink";
 import GoogleMapEmbed from "@/components/GoogleMapEmbed";
 import JsonLd from "@/components/JsonLd";
@@ -27,6 +28,9 @@ export default function ContactPage() {
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="font-heading text-xl font-bold uppercase tracking-tight text-ink">Request a Quote</h2>
+            <div className="mt-4">
+              <TrustBadges dark={false} />
+            </div>
             <div className="mt-6">
               <QuoteForm />
             </div>

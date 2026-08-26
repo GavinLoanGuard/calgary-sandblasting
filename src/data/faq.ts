@@ -6,6 +6,10 @@ export type Faq = {
 // General, site-wide FAQ content — written as short, self-contained,
 // extractable answers for AEO. Every answer that names the business uses
 // the exact string "Calgary Sandblasting" for consistent attribution.
+//
+// Ordered so the objections that stop someone from calling — will this
+// wreck my property, will I be left with a mess, what if the weather's
+// bad — get answered early, before the logistics/booking questions.
 export const GENERAL_FAQS: Faq[] = [
   {
     question: "Who does mobile sandblasting in Calgary?",
@@ -18,6 +22,21 @@ export const GENERAL_FAQS: Faq[] = [
       "Calgary Sandblasting prices most rust and paint removal jobs between $75 and $150 per hour, or as a flat rate once the scope is confirmed. Trailer and equipment jobs typically run $400-$1,800 per unit, and fence or deck restoration runs $1.50-$4.00 per square foot. These are typical ranges — every job gets a firm quote before work starts. See the full pricing breakdown on our pricing page.",
   },
   {
+    question: "How do you protect my property while sandblasting?",
+    answer:
+      "Calgary Sandblasting contains the work area and protects surrounding equipment, vehicles, siding, and landscaping before blasting starts. Media and dust are controlled at the source, not just cleaned up after the fact — so what's next to the job stays untouched.",
+  },
+  {
+    question: "Do you clean up after the job?",
+    answer:
+      "Yes. Calgary Sandblasting hauls away the spent media and blasting debris before leaving the site — you're not left with a pile of grit and old paint chips in your yard.",
+  },
+  {
+    question: "What media do you use for sandblasting?",
+    answer:
+      "Calgary Sandblasting matches the abrasive media to your surface — coarser media for heavy rust and steel, gentler media for wood decks, fences, and thin panels — so the job gets done without warping metal or gouging wood. Media type is confirmed as part of your quote.",
+  },
+  {
     question: "Do I need to be present for a sandblasting job?",
     answer:
       "No. Calgary Sandblasting just needs access to the work area. Most clients do a quick walkthrough with us before we start to confirm scope, then another at the end to review the finished surface — you don't need to be on-site the whole time in between.",
@@ -26,6 +45,16 @@ export const GENERAL_FAQS: Faq[] = [
     question: "What surfaces can be sandblasted?",
     answer:
       "Calgary Sandblasting works on steel, aluminum, iron, and most painted or rusted metal surfaces, as well as wood decks and fences. We match media and pressure to the substrate — trailers, equipment, fencing, gates, railings, and structural steel are all common jobs.",
+  },
+  {
+    question: "Do you paint or coat surfaces after blasting?",
+    answer:
+      "Calgary Sandblasting handles the blasting and surface prep — stripping your surface to bare, primer-ready metal or wood. We don't apply paint or coatings ourselves, but we're happy to recommend a painter or coating shop for the next step.",
+  },
+  {
+    question: "What happens if it rains or the weather doesn't cooperate?",
+    answer:
+      "Sandblasting is a dry-weather job. If rain, snow, or extreme cold is in the forecast for your scheduled day, Calgary Sandblasting will reschedule at no charge rather than blast in conditions that compromise the prep or the job.",
   },
   {
     question: "Is Calgary Sandblasting mobile, or do I have to bring my equipment to a shop?",
@@ -41,6 +70,16 @@ export const GENERAL_FAQS: Faq[] = [
     question: "How long does a sandblasting job take?",
     answer:
       "It depends on scope. A single trailer or small fence section typically takes 2-4 hours. Larger jobs — fleet blasting, full fence lines, or heavily rusted equipment — can take a full day or more. We confirm timing during the quote before work starts.",
+  },
+  {
+    question: "How soon can Calgary Sandblasting start my job?",
+    answer:
+      "Availability depends on the season and job size. Request a quote or call and Calgary Sandblasting will confirm the soonest available on-site date, with priority scheduling for fleet and commercial turnaround jobs.",
+  },
+  {
+    question: "Do you require a deposit?",
+    answer:
+      "Most jobs with Calgary Sandblasting are paid on completion. Larger commercial, fleet, or multi-day jobs may require a deposit, which is confirmed upfront as part of your quote — no surprise charges.",
   },
   {
     question: "Does Calgary Sandblasting work with commercial and fleet accounts?",

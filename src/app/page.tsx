@@ -12,7 +12,7 @@ import { BUSINESS_NAME, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA_CITIES } from "@
 import { SERVICES } from "@/data/services";
 import { GENERAL_FAQS } from "@/data/faq";
 
-const HOME_FAQS = GENERAL_FAQS.slice(0, 6);
+const HOME_FAQS = GENERAL_FAQS.slice(0, 9);
 
 export default function HomePage() {
   return (

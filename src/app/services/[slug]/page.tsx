@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
 import PageHero from "@/components/PageHero";
 import QuickAnswers from "@/components/QuickAnswers";
+import TrustBadges from "@/components/TrustBadges";
 import FaqAccordion from "@/components/FaqAccordion";
 import PlaceholderPhoto from "@/components/PlaceholderPhoto";
 import QuoteForm from "@/components/QuoteForm";
@@ -50,6 +51,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       <section className="py-12">
         <Container>
           <QuickAnswers title="Quick Answer" items={[service.faqs[0]]} />
+          <div className="mt-6">
+            <TrustBadges dark={false} />
+          </div>
         </Container>
       </section>
 
