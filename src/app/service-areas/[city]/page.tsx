@@ -5,12 +5,14 @@ import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
 import PageHero from "@/components/PageHero";
 import TrustBadges from "@/components/TrustBadges";
+import GalleryPhoto from "@/components/GalleryPhoto";
 import QuoteForm from "@/components/QuoteForm";
 import GoogleMapEmbed from "@/components/GoogleMapEmbed";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import { SERVICE_AREAS, getServiceAreaBySlug } from "@/data/service-areas";
 import { SERVICES } from "@/data/services";
+import { GALLERY_PHOTOS } from "@/data/gallery";
 import { BUSINESS_NAME } from "@/config/site";
 
 export function generateStaticParams() {
@@ -35,6 +37,11 @@ export function generateMetadata({ params }: { params: { city: string } }): Meta
 export default function ServiceAreaPage({ params }: { params: { city: string } }) {
   const city = getServiceAreaBySlug(params.city);
   if (!city) notFound();
+
+  // Rotate which 3 gallery photos show per city so the 6 near-identical
+  // service-area pages don't all display the same set.
+  const cityIndex = SERVICE_AREAS.findIndex((c) => c.slug === city.slug);
+  const photos = [0, 1, 2].map((i) => GALLERY_PHOTOS[(cityIndex + i) % GALLERY_PHOTOS.length]);
 
   return (
     <>
@@ -95,6 +102,19 @@ export default function ServiceAreaPage({ params }: { params: { city: string } }
             </div>
             <GoogleMapEmbed />
           </aside>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container>
+          <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
+            Recent Work
+          </h2>
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            {photos.map((photo) => (
+              <GalleryPhoto key={photo.src} label={photo.label} src={photo.src} />
+            ))}
+          </div>
         </Container>
       </section>
 

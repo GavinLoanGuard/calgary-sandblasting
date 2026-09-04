@@ -160,7 +160,7 @@ export default function HomePage() {
             </CTAButton>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
-            {GALLERY_PHOTOS.slice(0, 3).map((photo) => (
+            {GALLERY_PHOTOS.slice(3, 6).map((photo) => (
               <GalleryPhoto key={photo.src} label={photo.label} src={photo.src} />
             ))}
           </div>
