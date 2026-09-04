@@ -37,6 +37,16 @@ export const GENERAL_FAQS: Faq[] = [
       "Calgary Sandblasting matches the abrasive media to your surface — coarser media for heavy rust and steel, gentler media for wood decks, fences, and thin panels — so the job gets done without warping metal or gouging wood. Media type is confirmed as part of your quote.",
   },
   {
+    question: "What is a cheap alternative to sandblasting?",
+    answer:
+      "Wire wheels, chemical paint/rust strippers, and pressure washing are all cheaper for small spot jobs — a single rusty bolt or a small patch of peeling paint. Past that, they take far more labor hours and rarely get an even result, so sandblasting usually costs less overall once you count the time, and Calgary Sandblasting gets it done in a single visit.",
+  },
+  {
+    question: "What are the disadvantages of sandblasting?",
+    answer:
+      "Sandblasting can warp thin metal or gouge soft wood if the media and pressure aren't matched to the surface, it produces dust and spent media that need containment and cleanup, and it's a dry-weather job that can't run in rain or extreme cold. Calgary Sandblasting manages all three on every job — matching media to your surface, containing the work area, and hauling away debris before we leave.",
+  },
+  {
     question: "Do I need to be present for a sandblasting job?",
     answer:
       "No. Calgary Sandblasting just needs access to the work area. Most clients do a quick walkthrough with us before we start to confirm scope, then another at the end to review the finished surface — you don't need to be on-site the whole time in between.",
@@ -80,6 +90,11 @@ export const GENERAL_FAQS: Faq[] = [
     question: "Do you require a deposit?",
     answer:
       "Most jobs with Calgary Sandblasting are paid on completion. Larger commercial, fleet, or multi-day jobs may require a deposit, which is confirmed upfront as part of your quote — no surprise charges.",
+  },
+  {
+    question: "Does Calgary Sandblasting have reviews?",
+    answer:
+      "Calgary Sandblasting is a newer mobile operation, so we're still building our Google review history. In the meantime, ask us for references from recent jobs — and every job runs on the same insurance, WCB coverage, and transparent pricing regardless of how many reviews are on the profile yet.",
   },
   {
     question: "Does Calgary Sandblasting work with commercial and fleet accounts?",

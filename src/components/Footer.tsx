@@ -39,6 +39,11 @@ export default function Footer() {
               {EMAIL}
             </a>
           </p>
+          <p className="mt-4 text-sm">
+            <Link href="/about" className="text-steel-300 hover:text-hazard">
+              About Us
+            </Link>
+          </p>
         </div>
 
         <div>

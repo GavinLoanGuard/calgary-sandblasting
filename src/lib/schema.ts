@@ -9,6 +9,7 @@ import {
   OPENING_HOURS_SPEC,
   PHONE_DISPLAY,
   SERVICE_AREA_NAMES,
+  SOCIAL_LINKS,
 } from "@/config/site";
 
 const PHONE_E164 = PHONE_DISPLAY.replace(/[^\d+]/g, "");
@@ -19,12 +20,19 @@ const PHONE_E164 = PHONE_DISPLAY.replace(/[^\d+]/g, "");
  * Name/phone must exactly match Google Business Profile — see src/config/site.ts.
  */
 export function localBusinessSchema() {
+  // Only include profile links that actually exist — an empty string would
+  // otherwise emit an invalid sameAs URL. Populate SOCIAL_LINKS once the
+  // Google Business Profile and social accounts are live and this fills in
+  // automatically.
+  const sameAs = Object.values(SOCIAL_LINKS).filter(Boolean);
+
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${DOMAIN}/#business`,
     name: BUSINESS_NAME,
-    image: `${DOMAIN}/images/calgary-sandblasting-hero.jpg`,
+    image: `${DOMAIN}/images/gallery/fleet.png`,
+    logo: `${DOMAIN}/images/logo-mark.png`,
     url: DOMAIN,
     telephone: PHONE_E164,
     email: EMAIL,
@@ -52,6 +60,7 @@ export function localBusinessSchema() {
         name: category,
       },
     })),
+    ...(sameAs.length > 0 ? { sameAs } : {}),
     // Placeholder — replace with real aggregateRating once reviews exist.
     // aggregateRating: {
     //   "@type": "AggregateRating",

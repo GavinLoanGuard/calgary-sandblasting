@@ -4,7 +4,7 @@ import { SERVICES } from "@/data/services";
 import { SERVICE_AREAS } from "@/data/service-areas";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/services", "/service-areas", "/pricing", "/gallery", "/contact", "/faq"];
+  const staticRoutes = ["", "/about", "/services", "/service-areas", "/pricing", "/gallery", "/contact", "/faq"];
 
   const routes: MetadataRoute.Sitemap = staticRoutes.map((path) => ({
     url: `${DOMAIN}${path}`,

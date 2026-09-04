@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
@@ -37,6 +38,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
   if (!service) notFound();
   const photos = getGalleryPhotosForService(service.slug);
+  const otherServices = SERVICES.filter((s) => s.slug !== service.slug);
 
   return (
     <>
@@ -155,6 +157,24 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           </Container>
         </section>
       )}
+
+      <section className="py-12">
+        <Container>
+          <h2 className="font-mono text-xs font-bold uppercase tracking-wide text-steel-500">Other Services</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {otherServices.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="border-2 border-steel-300 bg-white px-4 py-3 text-sm font-medium text-ink hover:border-ink hover:text-rust"
+              >
+                {s.shortName}
+                {s.comingSoon && <span className="ml-1.5 text-xs text-steel-400">(Coming Soon)</span>}
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section className="py-16">
         <Container className="grid gap-8 lg:grid-cols-2">

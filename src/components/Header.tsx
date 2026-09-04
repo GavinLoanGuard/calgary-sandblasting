@@ -9,11 +9,9 @@ import CTAButton from "./CTAButton";
 import LogoMark from "./LogoMark";
 
 const NAV_LINKS = [
-  { href: "/services/trailer-equipment-blasting", label: "Trailer & Equipment" },
-  { href: "/services/fleet-commercial-blasting", label: "Fleet & Commercial" },
-  { href: "/services/rust-paint-removal", label: "Rust & Paint Removal" },
-  { href: "/services/fence-deck-restoration", label: "Fence & Deck" },
-  { href: "/service-areas/calgary", label: "Service Areas" },
+  { href: "/services", label: "Services" },
+  { href: "/service-areas", label: "Service Areas" },
+  { href: "/about", label: "About" },
   { href: "/pricing", label: "Pricing" },
   { href: "/gallery", label: "Gallery" },
   { href: "/faq", label: "FAQ" },
