@@ -11,6 +11,7 @@ import {
 import { SERVICES } from "@/data/services";
 import Container from "./Container";
 import PhoneLink from "./PhoneLink";
+import LogoMark from "./LogoMark";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -23,9 +24,7 @@ export default function Footer() {
       <Container className="relative grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="flex items-center gap-2 font-heading text-lg font-bold uppercase tracking-tight text-steel-50">
-            <span className="clip-tag flex h-7 w-7 items-center justify-center bg-hazard text-xs font-black text-ink">
-              CS
-            </span>
+            <LogoMark className="h-7" />
             {BUSINESS_NAME}
           </p>
           <p className="mt-3 text-sm leading-relaxed text-steel-400">

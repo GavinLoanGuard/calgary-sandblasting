@@ -6,6 +6,7 @@ import { BUSINESS_NAME } from "@/config/site";
 import Container from "./Container";
 import PhoneLink from "./PhoneLink";
 import CTAButton from "./CTAButton";
+import LogoMark from "./LogoMark";
 
 const NAV_LINKS = [
   { href: "/services/trailer-equipment-blasting", label: "Trailer & Equipment" },
@@ -26,9 +27,7 @@ export default function Header() {
       <div className="hazard-band h-1.5 w-full" />
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link href="/" className="group flex items-center gap-2.5">
-          <span className="clip-tag flex h-9 w-9 shrink-0 items-center justify-center bg-ink font-heading text-base font-black text-hazard">
-            CS
-          </span>
+          <LogoMark className="h-9" />
           <span className="font-heading text-lg font-bold uppercase leading-none tracking-tight text-ink sm:text-xl">
             {BUSINESS_NAME}
           </span>
