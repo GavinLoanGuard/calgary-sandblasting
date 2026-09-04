@@ -15,8 +15,10 @@ deployed to Vercel.
 5. **Google Maps embed** — `GOOGLE_MAPS_EMBED_SRC` in `src/config/site.ts` needs a real Maps Embed API key and
    place ID once the Google Business Profile is set up.
 6. **Social / GBP links** — `SOCIAL_LINKS` in `src/config/site.ts`.
-7. **Real photos** — every `<PlaceholderPhoto>` should be swapped for a real `next/image` once before/after job
-   photos are available. Photos should be optimized as WebP.
+7. **Photos** — job photos live in `public/images/gallery/` and are wired up in `src/data/gallery.ts`
+   (`GALLERY_PHOTOS`, with an optional `serviceSlug` to also surface a photo on that service's page). Add new
+   entries there as more job photos come in — the `<GalleryPhoto>` component renders a styled placeholder
+   automatically for any spot without a `src` yet (e.g. the oilfield/industrial service, which has no photos).
 8. **Aggregate rating schema** — commented out in `src/lib/schema.ts` (`localBusinessSchema`); uncomment once
    reviews exist on Google.
 

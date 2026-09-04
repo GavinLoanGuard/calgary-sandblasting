@@ -2,7 +2,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import CTAButton from "@/components/CTAButton";
 import TrustBadges from "@/components/TrustBadges";
-import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import GalleryPhoto from "@/components/GalleryPhoto";
 import QuickAnswers from "@/components/QuickAnswers";
 import FaqAccordion from "@/components/FaqAccordion";
 import GoogleMapEmbed from "@/components/GoogleMapEmbed";
@@ -11,6 +11,7 @@ import { faqPageSchema } from "@/lib/schema";
 import { BUSINESS_NAME, PHONE_DISPLAY, PHONE_HREF, SERVICE_AREA_CITIES } from "@/config/site";
 import { SERVICES } from "@/data/services";
 import { GENERAL_FAQS } from "@/data/faq";
+import { GALLERY_PHOTOS } from "@/data/gallery";
 
 const HOME_FAQS = GENERAL_FAQS.slice(0, 9);
 
@@ -46,9 +47,15 @@ export default function HomePage() {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 pt-6">
-            <PlaceholderPhoto label="Before / After — Trailer" className="col-span-2" aspect="aspect-[16/9]" />
-            <PlaceholderPhoto label="Equipment Blasting" />
-            <PlaceholderPhoto label="Fence Restoration" />
+            <GalleryPhoto
+              label="Fleet Trailer — Mid-Blast"
+              src="/images/gallery/fleet.png"
+              className="col-span-2"
+              aspect="aspect-[16/9]"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <GalleryPhoto label="Equipment Blasting" src="/images/gallery/equipment.png" />
+            <GalleryPhoto label="Fence Restoration" src="/images/gallery/fence.png" />
           </div>
         </Container>
         <div className="hazard-band h-1.5 w-full" />
@@ -141,10 +148,10 @@ export default function HomePage() {
           <div className="flex flex-wrap items-end justify-between gap-4 border-b-2 border-ink pb-4">
             <div>
               <h2 className="font-heading text-3xl font-bold uppercase tracking-tight text-ink sm:text-4xl">
-                Before &amp; After
+                Recent Work
               </h2>
               <p className="mt-2 max-w-2xl text-steel-600">
-                Project photos are being added as jobs are completed — check back or ask to see recent work when
+                Real photos from the field — more are added as jobs wrap up. Ask to see work from your area when
                 you request a quote.
               </p>
             </div>
@@ -152,11 +159,10 @@ export default function HomePage() {
               View Gallery
             </CTAButton>
           </div>
-          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4">
-            <PlaceholderPhoto label="Trailer — Before" />
-            <PlaceholderPhoto label="Trailer — After" />
-            <PlaceholderPhoto label="Fence — Before" />
-            <PlaceholderPhoto label="Fence — After" />
+          <div className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3">
+            {GALLERY_PHOTOS.slice(0, 3).map((photo) => (
+              <GalleryPhoto key={photo.src} label={photo.label} src={photo.src} />
+            ))}
           </div>
         </Container>
       </section>

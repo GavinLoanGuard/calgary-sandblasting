@@ -6,11 +6,12 @@ import PageHero from "@/components/PageHero";
 import QuickAnswers from "@/components/QuickAnswers";
 import TrustBadges from "@/components/TrustBadges";
 import FaqAccordion from "@/components/FaqAccordion";
-import PlaceholderPhoto from "@/components/PlaceholderPhoto";
+import GalleryPhoto from "@/components/GalleryPhoto";
 import QuoteForm from "@/components/QuoteForm";
 import JsonLd from "@/components/JsonLd";
 import { breadcrumbSchema, faqPageSchema, serviceSchema } from "@/lib/schema";
 import { SERVICES, getServiceBySlug } from "@/data/services";
+import { getGalleryPhotosForService } from "@/data/gallery";
 import { BUSINESS_NAME } from "@/config/site";
 
 export function generateStaticParams() {
@@ -35,6 +36,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 export default function ServicePage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
   if (!service) notFound();
+  const photos = getGalleryPhotosForService(service.slug);
 
   return (
     <>
@@ -111,12 +113,20 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      <section className="bg-steel-100 py-16">
-        <Container className="grid gap-6 sm:grid-cols-2">
-          <PlaceholderPhoto label={`${service.shortName} — Before`} />
-          <PlaceholderPhoto label={`${service.shortName} — After`} />
-        </Container>
-      </section>
+      {photos.length > 0 && (
+        <section className="bg-steel-100 py-16">
+          <Container>
+            <h2 className="border-b-2 border-ink pb-4 font-heading text-2xl font-bold uppercase tracking-tight text-ink">
+              On The Job
+            </h2>
+            <div className={`mt-10 grid gap-6 ${photos.length > 1 ? "sm:grid-cols-2" : "sm:max-w-md"}`}>
+              {photos.map((photo) => (
+                <GalleryPhoto key={photo.src} label={photo.label} src={photo.src} />
+              ))}
+            </div>
+          </Container>
+        </section>
+      )}
 
       <section className="py-16">
         <Container>
