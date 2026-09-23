@@ -34,7 +34,8 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
   },
   {
     src: "/images/gallery/driveway.png",
-    label: "Residential Driveway",
+    label: "Concrete Driveway Blasting",
+    serviceSlug: "concrete-blasting-cleaning",
   },
 ];
 

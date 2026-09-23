@@ -210,6 +210,50 @@ export const SERVICES: Service[] = [
     ],
   },
   {
+    slug: "concrete-blasting-cleaning",
+    name: "Concrete Blasting & Cleaning",
+    shortName: "Concrete Blasting & Cleaning",
+    metaTitle: "Concrete Blasting Calgary | Calgary Sandblasting",
+    metaDescription:
+      "Calgary Sandblasting strips oil stains, old sealant, paint, and coatings off driveways, sidewalks, and garage floors — on-site concrete blasting and cleaning across Calgary and area.",
+    heroDescription:
+      "Sandblasting lifts oil stains, old sealant, paint, and grime out of concrete that pressure washing alone can't touch — getting driveways, sidewalks, and garage floors ready for resealing or just clean again.",
+    keyPoints: [
+      "Strips oil stains, old sealant, and paint from concrete surfaces",
+      "Cleans driveways, sidewalks, patios, and garage floors on-site",
+      "Prepares concrete for resealing, staining, or a new coating",
+      "Media and pressure matched to the concrete so we clean without pitting the surface",
+    ],
+    process: [
+      "Walk the surface with you and confirm scope — full clean, stain removal, or coating prep",
+      "Protect landscaping, siding, and anything adjacent to the work area",
+      "Blast to lift stains, old sealant, and coatings from the concrete",
+      "Review the finished surface with you before we leave",
+    ],
+    goodFor: [
+      "Residential driveways with oil stains or old sealant",
+      "Garage floors and sidewalks before resealing or coating",
+      "Commercial concrete pads and walkways needing a deep clean",
+    ],
+    pricing: {
+      label: "Concrete blasting & cleaning",
+      range: "$2.50 – $5.00 per sq. ft.",
+      note: "Typical range depending on surface condition, staining, and whether it's a full clean or prep for resealing. We confirm square footage on the quote.",
+    },
+    faqs: [
+      {
+        question: "Can sandblasting remove oil stains from a concrete driveway?",
+        answer:
+          "Yes — sandblasting lifts oil stains and old sealant out of the concrete surface itself, rather than just spreading them around the way pressure washing can. Calgary Sandblasting matches media and pressure to the slab so we clean it without pitting the surface.",
+      },
+      {
+        question: "Will sandblasting damage my concrete?",
+        answer:
+          "No, not when the media and pressure are matched to the slab — which is confirmed as part of every quote. We're stripping stains, sealant, and old coatings off the surface, not grinding into sound concrete underneath.",
+      },
+    ],
+  },
+  {
     slug: "oilfield-industrial",
     name: "Oilfield & Industrial Sandblasting",
     shortName: "Oilfield & Industrial",

@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { ReactNode } from "react";
+import { trackEvent } from "@/lib/gtag";
 
 type Props = {
   href: string;
@@ -18,12 +21,19 @@ const VARIANTS: Record<string, string> = {
 };
 
 export default function CTAButton({ href, children, variant = "primary", className = "" }: Props) {
-  const isExternal = href.startsWith("tel:") || href.startsWith("mailto:") || href.startsWith("http");
+  const isTel = href.startsWith("tel:");
+  const isMailto = href.startsWith("mailto:");
+  const isExternal = isTel || isMailto || href.startsWith("http");
   const classes = `clip-tag inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${VARIANTS[variant]} ${className}`;
+
+  function handleClick() {
+    if (isTel) trackEvent("click_to_call", { link_url: href });
+    else if (isMailto) trackEvent("click_email", { link_url: href });
+  }
 
   if (isExternal) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} onClick={handleClick}>
         {children}
       </a>
     );

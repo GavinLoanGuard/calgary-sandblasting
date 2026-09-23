@@ -94,4 +94,5 @@ export const GBP_SERVICE_CATEGORIES = [
   "Rust removal service",
   "Trailer & equipment cleaning",
   "Fence & deck restoration",
+  "Concrete cleaning service",
 ];

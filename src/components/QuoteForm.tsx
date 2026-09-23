@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { WEB3FORMS_ACCESS_KEY } from "@/config/site";
-import { fireQuoteConversion } from "@/lib/gtag";
+import { fireQuoteConversion, trackEvent } from "@/lib/gtag";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -35,6 +35,7 @@ export default function QuoteForm({ serviceContext }: { serviceContext?: string 
       if (json.success) {
         setStatus("success");
         form.reset();
+        trackEvent("generate_lead", { service_interest: serviceContext || "general" });
         fireQuoteConversion();
       } else {
         setStatus("error");

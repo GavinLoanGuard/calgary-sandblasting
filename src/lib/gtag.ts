@@ -19,3 +19,14 @@ export function fireQuoteConversion() {
     send_to: `${GOOGLE_ADS_CONVERSION_ID}/${GOOGLE_ADS_CONVERSION_LABEL}`,
   });
 }
+
+/**
+ * Fires a plain GA4 event — independent of Google Ads conversion tracking,
+ * so phone clicks and form submissions still show up in GA4 even before any
+ * Ads conversion ID is configured. No-ops until NEXT_PUBLIC_GA4_MEASUREMENT_ID
+ * (or an Ads ID) is set, same as the rest of Analytics.tsx.
+ */
+export function trackEvent(name: string, params?: Record<string, unknown>) {
+  if (typeof window === "undefined" || !window.gtag) return;
+  window.gtag("event", name, params);
+}
