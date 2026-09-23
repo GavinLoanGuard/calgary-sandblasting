@@ -53,10 +53,9 @@ export const OPENING_HOURS_SPEC = [
   { dayOfWeek: ["Saturday"], opens: "08:00", closes: "16:00" },
 ];
 
-// Placeholder trust signals — swap in real coverage details once confirmed.
 export const TRUST_SIGNALS = [
   "Fully insured mobile operation",
-  "WCB coverage in place (confirming final documentation)",
+  "WCB coverage in place",
   "185 CFM compressor, full blast rig on every job",
   "We come to you — on-site at your yard or job site",
   "Work area contained — surrounding property protected",
