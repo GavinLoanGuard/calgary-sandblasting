@@ -3,19 +3,16 @@
  * Every page, schema block, and component should pull from here — never
  * hardcode the business name, phone number, or service area elsewhere.
  *
- * Update PHONE_DISPLAY / PHONE_HREF once the real number is confirmed, and
- * the brand colors in tailwind.config.ts once they're finalized. Everything
- * else here (env-driven IDs) is wired to placeholders until real values are
- * supplied via environment variables.
+ * Phone, email, and brand colors are confirmed real values. The env-driven
+ * tracking IDs further down are still wired to placeholders until the real
+ * values are supplied via environment variables in Vercel.
  */
 
 export const BUSINESS_NAME = "Calgary Sandblasting";
 
-// Placeholder — replace with the confirmed business line.
-export const PHONE_DISPLAY = "(403) 555-0123";
-export const PHONE_HREF = "tel:+14035550123";
+export const PHONE_DISPLAY = "(403) 465-3937";
+export const PHONE_HREF = "tel:+14034653937";
 
-// Placeholder — replace once a dedicated inbox exists.
 export const EMAIL = "info@calgarysandblasting.ca";
 
 export const DOMAIN = "https://calgarysandblasting.ca";

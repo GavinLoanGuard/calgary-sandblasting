@@ -7,12 +7,14 @@ import {
   EMAIL,
   GBP_SERVICE_CATEGORIES,
   OPENING_HOURS_SPEC,
-  PHONE_DISPLAY,
+  PHONE_HREF,
   SERVICE_AREA_NAMES,
   SOCIAL_LINKS,
 } from "@/config/site";
 
-const PHONE_E164 = PHONE_DISPLAY.replace(/[^\d+]/g, "");
+// Derived from PHONE_HREF (tel:+1...), not PHONE_DISPLAY, so schema always
+// gets a real E.164 number with country code rather than 10 bare digits.
+const PHONE_E164 = PHONE_HREF.replace(/^tel:/, "");
 
 /**
  * Core LocalBusiness JSON-LD, reused (with an @id) on every page so search

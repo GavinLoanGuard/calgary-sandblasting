@@ -6,24 +6,25 @@ deployed to Vercel.
 
 ## Before launch — placeholders to replace
 
-1. **Phone number** — `PHONE_DISPLAY` / `PHONE_HREF` in `src/config/site.ts`.
-2. **Insurance / WCB copy** — `TRUST_SIGNALS` in `src/config/site.ts`; confirm final wording once coverage is
+1. **Insurance / WCB copy** — `TRUST_SIGNALS` in `src/config/site.ts`; confirm final wording once coverage is
    confirmed.
-3. **Business hours** — `BUSINESS_HOURS` and `OPENING_HOURS_SPEC` in `src/config/site.ts` (keep both in sync).
-4. **Google Maps embed** — `GOOGLE_MAPS_EMBED_SRC` in `src/config/site.ts` needs a real Maps Embed API key and
+2. **Business hours** — `BUSINESS_HOURS` and `OPENING_HOURS_SPEC` in `src/config/site.ts` (keep both in sync).
+3. **Google Maps embed** — `GOOGLE_MAPS_EMBED_SRC` in `src/config/site.ts` needs a real Maps Embed API key and
    place ID once the Google Business Profile is set up.
-5. **Social / GBP links** — `SOCIAL_LINKS` in `src/config/site.ts`.
-6. **Photos** — job photos live in `public/images/gallery/` and are wired up in `src/data/gallery.ts`
+4. **Social / GBP links** — `SOCIAL_LINKS` in `src/config/site.ts`.
+5. **Photos** — job photos live in `public/images/gallery/` and are wired up in `src/data/gallery.ts`
    (`GALLERY_PHOTOS`, with an optional `serviceSlug` to also surface a photo on that service's page). Add new
    entries there as more job photos come in — the `<GalleryPhoto>` component renders a styled placeholder
    automatically for any spot without a `src` yet (e.g. the oilfield/industrial service, which has no photos).
-7. **Aggregate rating schema** — commented out in `src/lib/schema.ts` (`localBusinessSchema`); uncomment once
+6. **Aggregate rating schema** — commented out in `src/lib/schema.ts` (`localBusinessSchema`); uncomment once
    reviews exist on Google.
 
-**Logo & brand colors are done** — `public/images/logo-mark.png` is the icon cropped from the real logo (used
-in the header, footer, favicon, and OG share image via `src/components/LogoMark.tsx`), and `ink`/`hazard` in
-`tailwind.config.ts` are sampled directly from it (`#0E0E0E` / `#FEC208`). The full source file with wordmark is
-kept at `brand-assets/calgary-sandblasting-logo-full.png` (not deployed — not referenced by any page).
+**Phone, email, logo, and brand colors are done** — real number and inbox are wired into `PHONE_DISPLAY` /
+`PHONE_HREF` / `EMAIL` in `src/config/site.ts`. `public/images/logo-mark.png` is the icon cropped from the real
+logo (used in the header, footer, favicon, and OG share image via `src/components/LogoMark.tsx`), and
+`ink`/`hazard` in `tailwind.config.ts` are sampled directly from it (`#0E0E0E` / `#FEC208`). The full source file
+with wordmark is kept at `brand-assets/calgary-sandblasting-logo-full.png` (not deployed — not referenced by any
+page).
 
 All of the above are centralized in `src/config/site.ts` specifically so NAP (name, service area, phone) can be
 updated in one place without drifting between pages, matching whatever is entered in Google Business Profile.
